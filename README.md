@@ -1,5 +1,3 @@
-**WORK IN PROGRESS** Will be finished before EMNLP.
-
 Source code, data, and supplementary materials for our EMNLP 2016 article. Please use the following citation:
 
 
@@ -188,4 +186,58 @@ arg203444_arg251309	o8_1,o9_1,o5_1,o6_3,o7_3	The school my mother works at, plus
 
 ## Experiments
 
-TBA
+### Deep-learning experiments
+
+Installing Python dependencies:
+
+* virtualenv
+
+```bash
+user@ubuntu:~/emnlp2016-empirical-convincingness$ cd code/src/main/python/
+user@ubuntu:~/emnlp2016-empirical-convincingness/code/src/main/python$ virtualenv env
+Running virtualenv with interpreter /usr/bin/python2
+New python executable in /home/user/emnlp2016-empirical-convincingness/code/src/main/python/env/bin/python2
+Also creating executable in /home/user/emnlp2016-empirical-convincingness/code/src/main/python/env/bin/python
+Installing setuptools, pkg_resources, pip, wheel...done.
+```
+
+* requirements
+
+```bash
+user@ubuntu:~/emnlp2016-empirical-convincingness/code/src/main/python$ source env/bin/activate
+(env) user@ubuntu:~/emnlp2016-empirical-convincingness/code/src/main/python$ pip install -r requirements.txt
+...
+ Successfully installed Keras-1.0.3 PyYAML-3.11 Theano-0.8.2 nltk-3.1 nose-1.3.7 numpy-1.10.2 scikit-learn-0.17.1 scipy-0.16.1 six-1.10.0
+```
+
+* You should have CUDA installed on your machine for GPU-enabled computation
+    * Refer to http://deeplearning.net/software/theano/install.html
+    * This might get sometimes a bit tricky to install
+
+* Setting-up paths
+
+Adjust path in `data-loader.py`:
+
+```python
+folds, word_index_to_embeddings_map = load_my_data("~/data2/convincingness-emnlp/step14-gold-csv/")
+```
+
+so it points to `data/CSV-Format`
+
+* Run `THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32,optimizer_including=cudnn bidirectional_lstm.py`, adjust line 175 to get the right model (MLP, LSTM, ATT+LSTM)
+* Similarly, run `experiments_single_label.py` for the second experiment
+
+### Java-based experiments
+
+* Install LIBSVM ( https://www.csie.ntu.edu.tw/~cjlin/libsvm/ version used: Version 3.21, Dec 2015)
+    * Add `svm-train` and `svm-predict` to `/usr/local/bin/`
+    * Alternatively, adjust the path constant in SVMLibExperimentRunner
+
+Compile the Java project
+```bash
+$ cd code/
+$ mvn package
+```
+
+* Preprocessing: run `de.tudarmstadt.ukp.argumentation.emnlp2016.experiments.preprocessing.Pipeline`, then follow similar instructions from https://github.com/UKPLab/acl2016-convincing-arguments
+

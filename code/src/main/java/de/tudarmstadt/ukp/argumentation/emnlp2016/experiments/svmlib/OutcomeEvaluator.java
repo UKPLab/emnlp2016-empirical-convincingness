@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * (c) 2016 AUTHOR_HIDDEN
+ * (c) 2016 Ivan Habernal
  */
 public class OutcomeEvaluator
 {

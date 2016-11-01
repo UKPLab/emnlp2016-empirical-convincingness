@@ -27,7 +27,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- * (c) 2016 AUTHOR_HIDDEN
+ * (c) 2016 Ivan Habernal
  */
 public class OutcomeTabSepReader
         implements OutcomeSuccessMapReader
