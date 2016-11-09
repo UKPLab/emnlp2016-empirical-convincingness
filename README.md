@@ -150,6 +150,7 @@ Here is an  excerpt from the `is-the-school-uniform-a-good-or-bad-idea-_bad.xml`
               </mTurkReasonUnitAssignment>
             </assignments>
             <estimatedGoldLabel>o9_1</estimatedGoldLabel>    <!-- this is the estimated gold label -->
+            <!-- see below explanation of these labels -->
             <!-- some were ignored, some had duplicit text and thus not annotated,
             some were filtered out in previous pre-processing phases -->
             <ignored>false</ignored>
@@ -178,6 +179,30 @@ arg203444_arg251309	o8_1,o9_1,o5_1,o6_3,o7_3	The school my mother works at, plus
     * The less convincing argument
         * Line breaks are encoded as `<br/>`
 
+#### Label explanation
+
+The labels `oA_B` correspond to the following description (note that we a bit different notation in the article: `CA-B`)
+
+* `o8_1` Argument X has more details, information, facts, or examples / more reasons / better reasoning / goes deeper / is more specific
+* `o8_4` Argument X is balanced, objective, discusses several viewpoints / well-rounded / tackles flaws in opposing views
+* `o8_5` Argument X has better credibility / reliability / confidence
+* `o8_6` Explanation is highly topic-specific and addresses the content of Argument X in detail
+* `o9_1` Argument X is clear, crisp, to the point / well written
+* `o9_2` Argument X sticks to the topic
+* `o9_3` Argument X has provoking question / makes you think
+* `o9_4` Argument X is well thought of / has smart remarks / higher complexity
+* `o5_1` Argument X is attacking opponent / abusive
+* `o5_2` Argument X has language issues / bad grammar / uses humor, jokes, or sarcasm
+* `o5_3` Argument X is unclear, hard to follow
+* `o6_1` Argument X provides no facts / not enough support / not credible evidence / no clear explanation
+* `o6_2` Argument X has no reasoning / less or insufficient reasoning
+* `o6_3` Argument X uses irrelevant reasons / irrelevant information
+* `o7_1` Argument X is not an argument / is only opinion / is rant
+* `o7_2` Argument X is non-sense / has no logical sense / confusing
+* `o7_3` Argument X is off topic / doesn't address the issue
+* `o7_4` Argument X is generally weak / vague
+
+Labels `o5_*`, `o6_*` and `o7_*` are always attached to the less convincing argument, while labels `o8_*` and `o9_*` to the more convincing argument.
 
 ## Requirements
 
